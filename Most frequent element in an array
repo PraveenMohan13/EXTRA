@@ -1,0 +1,142 @@
+O(n2) 
+
+public class PM
+{
+public static int mostFrequent(int[] arr, int n)
+{
+	int maxcount = 0;
+	int element_having_max_freq = 0;
+	for (int i = 0; i < n; i++) {
+	int count = 0;
+	for (int j = 0; j < n; j++) {
+		if (arr[i] == arr[j]) {
+		count++;
+		}
+	}
+
+	if (count > maxcount) {
+		maxcount = count;
+		element_having_max_freq = arr[i];
+	}
+	}
+
+	return element_having_max_freq;
+}
+public static void main(String[] args)
+{
+	int[] arr = { 40, 50, 30, 40, 50, 30, 30 };
+	int n = arr.length;
+	System.out.print(mostFrequent(arr, n));
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+O(nlog(n)) 
+
+import java.util.*;
+class PM {
+	static int mostFrequent(int arr[], int n)
+	{
+		Arrays.sort(arr);
+		int max_count = 1, res = arr[0];
+		int curr_count = 1;
+
+		for (int i = 1; i < n; i++) {
+			if (arr[i] == arr[i - 1])
+				curr_count++;
+			else
+				curr_count = 1;
+
+			if (curr_count > max_count) {
+				max_count = curr_count;
+				res = arr[i - 1];
+			}
+		}
+		return res;
+	}
+	public static void main(String[] args)
+	{
+		int arr[] = { 40,50,30,40,50,30,30};
+		int n = arr.length;
+		System.out.println(mostFrequent(arr, n));
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Time Complexity: O(n) 
+Auxiliary Space: O(n)
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+class GFG {
+	static int mostFrequent(int arr[], int n)
+    {	
+		// Insert all elements in hash
+		Map<Integer, Integer> hp =
+			new HashMap<Integer, Integer>();
+		
+		for(int i = 0; i < n; i++)
+		{
+			int key = arr[i];
+			if(hp.containsKey(key))
+			{
+				int freq = hp.get(key);
+				freq++;
+				hp.put(key, freq);
+			}
+			else
+			{
+				hp.put(key, 1);
+			}
+		}
+		
+		// find max frequency.
+		int max_count = 0, res = -1;
+		for(Entry<Integer, Integer> val : hp.entrySet())
+		{
+			if (max_count < val.getValue())
+			{
+				res = val.getKey();
+				max_count = val.getValue();
+			}
+		}
+		return res;
+	}
+	public static void main (String[] args) {
+		int arr[] = {40,50,30,40,50,30,30};
+		int n = arr.length;
+		
+		System.out.println(mostFrequent(arr, n));
+	}
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+O(n)
+Boyer-Moore Majority Voting Algorithm
+import java.io.*;
+class PM
+{
+public static void main (String[] args) {
+	int arr[] = {20,50,20,20,20,30,30};
+	int n = arr.length;
+    int res = arr[0];
+	int count = 1;
+	for(int i = 1; i < n; i++) {
+		if(arr[i] == res) 
+			count++;
+        else 
+			count--;
+		if(count == 0) {
+			res = arr[i];
+			count = 1;
+		}
+	}
+	count = 0;
+	for(int i = 0; i < n; i++) {
+		if(arr[i] == res)
+			count++;
+	}
+    if(count>n/2)
+	System.out.println("Element " +res +" occurs " +count +" times" );
+    else
+        System.out.println("-1");
+}	
+}
