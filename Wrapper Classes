@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main { 
+  public static void main(String[] args) { 
+  Scanner z=new Scanner(System.in);
+    Integer a = 5; //Integer is a wrapper class a is a object of that class
+    Double myDouble = 5.99; 
+    Character myChar = z.next().charAt(0); 
+    System.out.println(a.intValue());
+    System.out.println(myDouble.doubleValue());
+    System.out.println(a.doubleValue());
+    System.out.println(myDouble.intValue());
+    System.out.println(myChar.charValue());
+    String myString = myDouble.toString();//double to string convert
+    System.out.println(myString.length());
+  }
+}
