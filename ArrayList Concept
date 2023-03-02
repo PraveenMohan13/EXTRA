@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.Collections;  // Import the Collections class
+
+public class Main {
+  public static void main(String[] args) {
+      Scanner z=new Scanner(System.in);
+    ArrayList<String> cars = new ArrayList<String>();
+    ArrayList<Integer> myNumbers = new ArrayList<Integer>();
+    cars.add(z.next());
+    cars.add(z.next());
+    myNumbers.add(z.nextInt());
+    myNumbers.add(z.nextInt());
+//if we put object the entire ans will be print as List 
+    System.out.println(cars);
+//if we put as loop it will print the element normal format.
+    for (String i : cars)
+        System.out.println(i);
+      
+    for (int i : myNumbers)
+      System.out.println(i);
+  }
+}
