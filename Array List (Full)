@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Collections;  // Import the Collections class
+
+public class Main {
+  public static void main(String[] args) {
+      Scanner z=new Scanner(System.in);
+    ArrayList<String> cars = new ArrayList<String>();
+    ArrayList<Integer> myNumbers = new ArrayList<Integer>();
+    cars.add(z.next());
+    cars.add(z.next());
+      System.out.println("total ->"+cars);
+    System.out.println("start size-> "+cars.size());
+    System.out.println("using get method to get first element-> "+cars.get(0));
+    cars.set(0, "Audi");
+    System.out.println("After change first string using set method-> "+cars);
+    cars.remove(0);
+      System.out.println("After remove first string using remove method-> "+cars);
+    cars.clear();
+      System.out.println("After using clear method -> "+cars);
+    System.out.println("end size -> "+cars.size());
+    myNumbers.add(z.nextInt());
+    myNumbers.add(z.nextInt());
+System.out.println("if we put object the entire ans will be print as List ");
+    System.out.println(myNumbers);
+System.out.println("if we put as loop it will print the element normal format.");
+    for (int i : myNumbers)
+        System.out.println(i);
+         Collections.sort(myNumbers);
+      System.out.println("after sort ->"+myNumbers);
+  }
+}
